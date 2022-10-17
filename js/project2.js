@@ -1,10 +1,17 @@
+
+
 class Box{
     #width;
     #height;
     #dx;
     #dy;
     #elm;
+    
 
+    // get elm(){
+    //     return this.#elm;
+    // }
+    
     constructor(){
         this.#elm = document.createElement('div');
         this.#elm.classList.add('box');
@@ -25,19 +32,39 @@ class Box{
         this.#elm.style.borderRadius = `${Math.random() * 101}%`;
         this.#elm.style.transform = `rotate(${Math.random() * 361}deg)`;
     }
-
+    
     move(){
-        if (this.#elm.offsetTop >= (innerHeight - this.#height) || this.#elm.offsetTop <= 0){
+        let dist = (cursor.offsetLeft - this.#elm.offsetLeft);
+        let min = (cursor.offsetWidth+this.#elm.offsetWidth);
+        if (this.#elm.offsetTop >= (innerHeight - this.#height) || this.#elm.offsetTop <= 0 || dist<min){
             this.#dy = -this.#dy;
         }
-        if (this.#elm.offsetLeft >= (innerWidth - this.#width) || this.#elm.offsetLeft <= 0){      
+        if (this.#elm.offsetLeft >= (innerWidth - this.#width) || this.#elm.offsetLeft <= 0 || dist<min){      
             this.#dx = -this.#dx;
         } 
-    
+        // if(dist<min){
+        //     this.#dx = -this.#dx;
+        //     this.#dy = -this.#dy;
+        // }
+        
         this.#elm.style.left = `${this.#elm.offsetLeft + this.#dx}px`;
         this.#elm.style.top = `${this.#elm.offsetTop + this.#dy}px`; 
+        
+        
+            
+        
+        
+        
+        
     }
-}
+    
+    
+    
+    
+        
+    
+};
+
 
 const boxes = [];
 for(let i = 0; i < 50; i++){

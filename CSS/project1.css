@@ -1,0 +1,40 @@
+#cursor {
+  width: 75px;
+  height: 75px;
+  border-radius: 100%;
+  background-color: red;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  opacity: 90%;
+  pointer-events: none;
+}
+
+#cursor::before {
+  display: inline-block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  border-radius: 100%;
+  animation-name: anim;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  pointer-events: none;
+  opacity: 90%;
+}
+
+@keyframes anim {
+  from {
+    transform: scale(0);
+    opacity: 90%;
+  }
+  to {
+    transform: scale(2.5);
+    opacity: 0%;
+  }
+}
+body {
+  overflow-x: hidden;
+}
+
+/*# sourceMappingURL=project1.css.map */
