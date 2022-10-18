@@ -34,8 +34,9 @@ class Box{
     }
     
     move(){
-        let dist = (cursor.offsetLeft - this.#elm.offsetLeft);
+        let dist = Math.abs((cursor.offsetLeft - this.#elm.offsetLeft));
         let min = (cursor.offsetWidth+this.#elm.offsetWidth);
+        console.log(min);
         if (this.#elm.offsetTop >= (innerHeight - this.#height) || this.#elm.offsetTop <= 0 || dist<min){
             this.#dy = -this.#dy;
         }
