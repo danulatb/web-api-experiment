@@ -12,7 +12,7 @@ let clear = false;
 
 
 const typeText=()=>{
-    console.log("test");
+    // console.log("test");
     if(!clear){
         text.innerText = wordArray[index].substring(0,charIndex++);
         if((wordArray[index].length +15) === charIndex){
@@ -23,7 +23,7 @@ const typeText=()=>{
 }
 
 const removeText=()=>{
-    console.log("remove");
+    // console.log("remove");
     if(clear){
         text.innerText = wordArray[index].substring(0,charIndex--);
         if(charIndex=== 0){
@@ -53,13 +53,13 @@ function type(timestamp){
     if(!t2) t2 = timestamp;
 
     const diff1 = timestamp - t1;
-    if(diff1>= 65){
+    if(diff1>= 190){
         t1 = timestamp;
         typeText();
     }
 
     const diff2 = timestamp -t2;
-    if(diff2>=35){
+    if(diff2>=30){
         t2 = timestamp;
         removeText();
     }

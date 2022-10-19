@@ -6,6 +6,7 @@
 
 body {
   font-family: "Convergence", sans-serif;
+  overflow: hidden;
 }
 
 #output {
@@ -18,18 +19,51 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
+  z-index: 2;
 }
 #output span {
   font-size: 3rem;
 }
 
+#output::after {
+  display: inline-block;
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: yellow;
+  animation-duration: 3s;
+  animation-name: anim;
+  animation-iteration-count: infinite;
+  z-index: -1;
+}
+
+@keyframes anim {
+  from {
+    transform: scale(0);
+    opacity: 90%;
+  }
+  to {
+    transform: scale(1.8);
+    opacity: 0%;
+  }
+}
+@keyframes go {
+  from {
+    left: 0;
+  }
+  to {
+    left: 100%;
+  }
+}
 #blinker {
   display: inline-block;
   height: 3rem;
-  width: 20px;
+  width: 12px;
   background-color: black;
   animation: blink;
-  animation-duration: 1s;
+  animation-duration: 0.8s;
   animation-iteration-count: infinite;
 }
 
